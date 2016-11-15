@@ -64,6 +64,7 @@ libOmxVdec-def += -DMAX_RES_1080P
 libOmxVdec-def += -DMAX_RES_1080P_EBI
 libOmxVdec-def += -DPROCESS_EXTRADATA_IN_OUTPUT_PORT
 libOmxVdec-def += -D_MSM8974_
+libOmxVdec-def += -D_ION_HEAP_MASK_COMPATIBILITY_WA
 endif
 ifeq ($(TARGET_BOARD_PLATFORM),msm8084)
 libOmxVdec-def += -DMAX_RES_1080P
@@ -99,7 +100,7 @@ LOCAL_PATH:= $(ROOT_DIR)
 
 libmm-vdec-inc          := $(LOCAL_PATH)/vdec/inc
 libmm-vdec-inc          += $(OMX_VIDEO_PATH)/vidc/common/inc
-libmm-vdec-inc          += $(call project-path-for,qcom-media)/msm8974/mm-core/inc
+libmm-vdec-inc          += hardware/qcom/media/msm8974/mm-core/inc
 #DRM include - Interface which loads the DRM library
 libmm-vdec-inc	        += $(OMX_VIDEO_PATH)/DivxDrmDecrypt/inc
 libmm-vdec-inc          += $(TARGET_OUT_HEADERS)/qcom/display
@@ -107,7 +108,7 @@ libmm-vdec-inc          += $(TARGET_OUT_HEADERS)/adreno
 libmm-vdec-inc          += frameworks/native/include/media/openmax
 libmm-vdec-inc          += frameworks/native/include/media/hardware
 libmm-vdec-inc          += $(vdec-inc)
-libmm-vdec-inc      += $(call project-path-for,qcom-media)/msm8974/libc2dcolorconvert
+libmm-vdec-inc      += hardware/qcom/media/msm8974/libc2dcolorconvert
 libmm-vdec-inc      += frameworks/av/include/media/stagefright
 
 
@@ -187,7 +188,7 @@ endif
 # ---------------------------------------------------------------------------------
 include $(CLEAR_VARS)
 
-mm-vdec-test-inc    := $(call project-path-for,qcom-media)/msm8974/mm-core/inc
+mm-vdec-test-inc    := hardware/qcom/media/msm8974/mm-core/inc
 mm-vdec-test-inc    += $(LOCAL_PATH)/vdec/inc
 mm-vdec-test-inc    += $(vdec-inc)
 
@@ -208,7 +209,7 @@ LOCAL_SRC_FILES           += vdec/test/omx_vdec_test.cpp
 # ---------------------------------------------------------------------------------
 include $(CLEAR_VARS)
 
-mm-vdec-drv-test-inc    := $(call project-path-for,qcom-media)/msm8974/mm-core/inc
+mm-vdec-drv-test-inc    := hardware/qcom/media/msm8974/mm-core/inc
 mm-vdec-drv-test-inc    += $(LOCAL_PATH)/vdec/inc
 mm-vdec-drv-test-inc    += $(vdec-inc)
 

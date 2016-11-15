@@ -49,6 +49,7 @@ endif
 ifeq ($(TARGET_BOARD_PLATFORM),msm8226)
 libmm-venc-def += -DMAX_RES_1080P
 libmm-venc-def += -D_MSM8974_
+libmm-venc-def += -D_ION_HEAP_MASK_COMPATIBILITY_WA
 endif
 ifeq ($(TARGET_BOARD_PLATFORM),msm8084)
 libmm-venc-def += -DMAX_RES_1080P
@@ -79,13 +80,13 @@ include $(CLEAR_VARS)
 
 libmm-venc-inc      := $(LOCAL_PATH)/venc/inc
 libmm-venc-inc      += $(OMX_VIDEO_PATH)/vidc/common/inc
-libmm-venc-inc      += $(call project-path-for,qcom-media)/msm8974/mm-core/inc
-libmm-venc-inc      += $(call project-path-for,qcom-media)/msm8974/libstagefrighthw
+libmm-venc-inc      += hardware/qcom/media/msm8974/mm-core/inc
+libmm-venc-inc      += hardware/qcom/media/msm8974/libstagefrighthw
 libmm-venc-inc      += $(TARGET_OUT_HEADERS)/qcom/display
 libmm-venc-inc      += $(TARGET_OUT_HEADERS)/adreno
 libmm-venc-inc      += frameworks/native/include/media/hardware
 libmm-venc-inc      += frameworks/native/include/media/openmax
-libmm-venc-inc      += $(call project-path-for,qcom-media)/msm8974/libc2dcolorconvert
+libmm-venc-inc      += hardware/qcom/media/msm8974/libc2dcolorconvert
 libmm-venc-inc      += frameworks/av/include/media/stagefright
 libmm-venc-inc      += frameworks/av/include/media/hardware
 libmm-venc-inc      += $(venc-inc)
